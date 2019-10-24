@@ -1,7 +1,5 @@
-'use strict';
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./cjs/history.min.js');
-} else {
-  module.exports = require('./cjs/history.js');
-}
+export { default as createBrowserHistory } from './createBrowserHistory';
+export { default as createHashHistory } from './createHashHistory';
+export { default as createMemoryHistory } from './createMemoryHistory';
+export { createLocation, locationsAreEqual } from './LocationUtils';
+export { parsePath, createPath } from './PathUtils';
