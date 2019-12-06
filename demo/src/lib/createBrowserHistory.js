@@ -20,6 +20,7 @@ import warning from './warning.js';
 const PopStateEvent = 'popstate';
 const HashChangeEvent = 'hashchange';
 
+// 获取历史记录中的state
 function getHistoryState() {
   try {
     return window.history.state || {};
@@ -34,6 +35,7 @@ function getHistoryState() {
  * Creates a history object that uses the HTML5 history API including
  * pushState, replaceState, and the popstate event.
  */
+
 function createBrowserHistory(props = {}) {
   invariant(canUseDOM, 'Browser history needs a DOM');
 
@@ -46,6 +48,7 @@ function createBrowserHistory(props = {}) {
     getUserConfirmation = getConfirmation,
     keyLength = 6
   } = props;
+
   const basename = props.basename
     ? stripTrailingSlash(addLeadingSlash(props.basename))
     : '';
@@ -164,6 +167,7 @@ function createBrowserHistory(props = {}) {
 
     const action = 'PUSH';
     const location = createLocation(path, state, createKey(), history.location);
+    console.log(location);
 
     transitionManager.confirmTransitionTo(
       location,
@@ -320,7 +324,8 @@ function createBrowserHistory(props = {}) {
     goBack,
     goForward,
     block,
-    listen
+    listen,
+    me: 'me'
   };
 
   return history;

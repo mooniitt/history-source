@@ -50,5 +50,7 @@ export function supportsGoWithoutReloadUsingHash() {
  * containing undefined state when pressing the back button.
  */
 export function isExtraneousPopstateEvent(event) {
-  return event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1;
+  return (
+    event.state === undefined && navigator.userAgent.indexOf('CriOS') === -1
+  );
 }

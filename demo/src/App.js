@@ -1,18 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from './lib/index';
 
+const history = createBrowserHistory();
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-        </header>
+      <div>
+        <a onClick={() => history.push('/')}>root</a>
+        <br />
+        <a onClick={() => history.push('/home')}>home page</a>
+        <br />
+        <a onClick={() => history.push('/about')}>about page</a>
+        <br />
+        <a onClick={() => history.goBack()}>返回</a>
       </div>
     );
   }
